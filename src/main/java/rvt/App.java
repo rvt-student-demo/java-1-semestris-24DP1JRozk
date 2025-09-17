@@ -12,10 +12,7 @@ public class App {
         System.out.println("Input second number:");
         double secondnum = Integer.valueOf(scanner.nextLine());
 
-        System.out.println("Input third number:");
-        double thirdnum = Integer.valueOf(scanner.nextLine());
-
         scanner.close();
-        System.out.println("The average value of these three numbers is: " + (firstnum + secondnum + thirdnum) / 3);
+        System.out.println(firstnum + " + " + secondnum + " = " + (firstnum + secondnum));
     }
 }
