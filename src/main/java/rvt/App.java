@@ -1,7 +1,21 @@
 package rvt;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Three number average!");
+
+        System.out.println("Input first number:");
+        double firstnum = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Input second number:");
+        double secondnum = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Input third number:");
+        double thirdnum = Integer.valueOf(scanner.nextLine());
+
+        scanner.close();
+        System.out.println("The average value of these three numbers is: " + (firstnum + secondnum + thirdnum) / 3);
     }
 }
