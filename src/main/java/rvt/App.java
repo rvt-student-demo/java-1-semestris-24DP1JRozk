@@ -8,16 +8,26 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Input number:");
-        int number = Integer.valueOf(scanner.nextLine());
+        System.out.println("Input numbers, to stop, input '0':");
+
+        int sum = 0;
+        int count = 0;
+
+        while (true) {
+            int number = Integer.valueOf(scanner.nextLine());
+
+            count ++;
+
+            if (number == 0) {
+                break;
+            }
+
+            sum = sum + number;
+        }
+
         scanner.close();
 
-        System.out.println("");
-
-
-        for (int i = 0; i <= number; i ++) {
-            System.out.println(i);
-        }
-        System.out.println("Done!");
+        System.out.println("Numbers inputed: " + count);
+        System.out.println("Sum of inputed numbers: " + sum);
     }
 }
