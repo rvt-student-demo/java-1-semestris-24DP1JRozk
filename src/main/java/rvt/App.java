@@ -2,44 +2,46 @@ package rvt;
 
 import java.util.Scanner;
 
+import java.util.Random;
+
 public class App {
     public static void main(String[] args) {
-        System.out.println("Counter!\n");
 
+        System.out.println("Guesser!");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Whats the max number that the game can think of?");
+        int maxNumber = Integer.valueOf(scanner.nextLine());
+        Random random = new Random();
+        int result = random.nextInt(maxNumber) + 1;
+        System.out.println("Guess the number from 0 to " + maxNumber + "!");
 
-        System.out.println("Input numbers, to stop, input '-1':");
-
-        int sum = 0;
-        int count = 0;
-        int even = 0;
-        int odd = 0;
+        int tries = 0;
 
         while (true) {
-            int number = Integer.valueOf(scanner.nextLine());
-
-            if (number == -1) {
+            int guess = Integer.valueOf(scanner.nextLine());
+            tries ++;
+            if (guess == result) {
+                System.out.println("Correct!");
+                break;
+            } else {
+                System.out.println("Try again!");
+            }
+            if (tries == 3) {
+                System.out.println("You Lost!");
                 break;
             }
-
-            if (number % 2 == 1) {
-                odd ++;
-            } else {
-                even ++;
-            }
-
-            sum = sum + number;
-
-            count ++;
         }
 
         scanner.close();
 
-        System.out.println("Thx! Bye!");
-        System.out.println("Sum of inputed numbers: " + sum);
-        System.out.println("Numbers inputed: " + count);
-        System.out.println("Average: " + (1.0 * sum / count));
-        System.out.println("Even number count: " + even);
-        System.out.println("Odd number count: " + odd);
+        if (tries == 3) {
+            System.out.println("The correct answer was: " + result + "!");
+        } else {
+            if (tries == 1) {
+                System.out.println("You won the game in: " + tries + " try! Wow!");
+            } else {
+                System.out.println("You won the game in: " + tries + " tires!");
+            }
+        }
     }
 }
