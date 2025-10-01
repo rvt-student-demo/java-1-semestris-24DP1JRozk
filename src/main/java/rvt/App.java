@@ -14,10 +14,10 @@ public class App {
         int nSum = 0;
 
         for (int i = 0; i < startN + 1; i++) {
-            nSum = nSum + i;         
+            nSum = nSum + (i * i);         
         }
 
         System.out.println("Sum = " + nSum);
-        System.out.println("Formula = " + (startN * (startN + 1)) / 2);
+        System.out.println("Formula = " + (startN * (startN + 1) * (2 * startN + 1)) / 6);
     }
 }
