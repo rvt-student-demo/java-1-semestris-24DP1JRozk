@@ -3,17 +3,7 @@ package rvt;
 import java.util.Scanner;
 
 public class App {
-    public static void ex1() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter start: ");
-        int startV = Integer.valueOf(scanner.nextLine());
-        System.out.println("\nEnter end: ");
-        int endV = Integer.valueOf(scanner.nextLine());
-        System.out.println();
-
-        scanner.close();
-
+    public static void ex1(int startV, int endV) {
         for (int i = startV; i < endV + 1; i++) {
             System.out.println(i);          
         }
@@ -115,17 +105,25 @@ public class App {
         }
     }
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            
+
             System.out.print("Input the exercise you want to run (from 1 to 7): ");
-            Scanner scanner = new Scanner(System.in);
             int exercise = Integer.valueOf(scanner.nextLine());
-            scanner.close();
 
             if (exercise == 1) {
                 System.out.println("Exercise 1 — Run of Integers");
-                ex1();
+
+                System.out.println("Enter start: ");
+                int startV = Integer.valueOf(scanner.nextLine());
+                System.out.println("\nEnter end: ");
+                int endV = Integer.valueOf(scanner.nextLine());
+                System.out.println();
+
+                scanner.close();
+                
+                ex1(startV, endV);
             } else if (exercise == 2) {
                 System.out.println("Exercise 2 — Sum of Sequential Integers");
                 ex2();
