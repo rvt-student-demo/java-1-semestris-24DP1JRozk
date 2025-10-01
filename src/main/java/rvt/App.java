@@ -6,19 +6,14 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter low: ");
-        int startV = Integer.valueOf(scanner.nextLine());
-        System.out.println("Enter high: ");
-        int endV = Integer.valueOf(scanner.nextLine());
+        System.out.println("Input word: ");
+        String word = scanner.nextLine();
+        System.out.println();
 
         scanner.close();
 
-        int intSum = 0;
-
-        for (int i = startV; i < endV + 1; i++) {
-            intSum = intSum + i;          
+        for (int i = 0; i < word.length(); i++) {
+            System.out.println(word);
         }
-
-        System.out.println("Sum: " + intSum);
     }
 }
