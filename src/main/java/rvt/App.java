@@ -3,20 +3,19 @@ package rvt;
 import java.util.Scanner;
 
 public class App {
-    public static void divisibleByThree(int startV, int endV) {
-        System.out.println();
-        for (int i = startV; i < endV + 1; i++) {
-            System.out.println(i);
-        }      
-    }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter start: ");
         int startV = Integer.valueOf(scanner.nextLine());
+        System.out.println("\nEnter end: ");
         int endV = Integer.valueOf(scanner.nextLine());
+        System.out.println();
 
         scanner.close();
-        divisibleByThree(startV, endV);
+
+        for (int i = startV; i < endV + 1; i++) {
+            System.out.println(i);          
+        }
     }
 }
