@@ -1,18 +1,25 @@
 package rvt;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] arr = {5, 1, 3, 4, 2};
-        printStars(arr);
-    }
+        ArrayList<String> list = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-    public static void printStars(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i]; j++) {
-                System.out.print("*");
+        String index = "";
+        while (true) {
+            index = scanner.nextLine();
+
+            if (index == "") {
+                break;
+            } else {
+                list.add(index);
             }
-            System.out.println();
         }
+
+        scanner.close();
+        System.out.println("In total: " + list.size());
     }
 }
 
