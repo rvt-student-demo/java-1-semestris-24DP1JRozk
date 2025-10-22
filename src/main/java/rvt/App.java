@@ -23,8 +23,7 @@ public class App {
         boolean found = false;
 
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i) + " " + search);
-            if (list.get(i) == search) {
+            if (list.get(i).equals(search)) {
                 found = true;
                 break;
             }
