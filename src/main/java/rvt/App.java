@@ -1,41 +1,22 @@
 package rvt;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArrayList<String> list = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> strings = new ArrayList<>();
 
-        String index = scanner.nextLine();
-        while (true) {
-            if (index == "") {
-                break;
-            } else {
-                list.add(index);
-            }
-            index = scanner.nextLine();
-        }
+        strings.add("First");
+        strings.add("Second");
+        strings.add("Third");
 
-        System.out.print("Search for? ");
-        String search = scanner.nextLine();
+        System.out.println(strings);
 
-        boolean found = false;
+        removeLast(strings);
 
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(search)) {
-                found = true;
-                break;
-            }
-        }
-
-        if (found == true) {
-            System.out.println(search + " was found!");
-        } else {
-            System.out.println(search + " was not found!");
-        }
-        
-        scanner.close();
+        System.out.println(strings);
+    }
+    public static void removeLast(ArrayList<String> list) {
+        list.remove(list.size() - 1);
     }
 }
 
