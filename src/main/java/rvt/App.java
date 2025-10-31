@@ -1,16 +1,21 @@
 package rvt;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Statistics statistics = new Statistics();
-        statistics.addNumber(3);
-        statistics.addNumber(5);
-        statistics.addNumber(1);
-        statistics.addNumber(2);
-        System.out.println("Count: " + statistics.getCount());
+        int i = scanner.nextInt();
+        while (i != -1) {
+            statistics.addNumber(i);
+            i = scanner.nextInt();
+        }
+        scanner.close();
         System.out.println("Sum: " + statistics.sum());
-        System.out.println("Average: " + statistics.average());
+        System.out.println("Sum of even numbers: " + statistics.sumOfEven());
+        System.out.println("Sum of odd numbers: " + statistics.sumOfOdd());
+
     }
     public static void removeLast(ArrayList<String> list) {
         list.remove(list.size() - 1);
@@ -19,6 +24,8 @@ public class App {
     public static class Statistics {
         private int count;
         private int sum;
+        private int odd;
+        private int even;
 
         public Statistics() {
             this.count = 0;
@@ -27,6 +34,11 @@ public class App {
         public void addNumber(int number) {
             this.count++;
             this.sum += number;
+            if (number % 2 == 0) {
+                this.even += number;
+            } else {
+                this.odd += number;
+            }
         }
 
         public int getCount() {
@@ -35,6 +47,14 @@ public class App {
 
         public int sum() {
             return this.sum;
+        }
+
+        public int sumOfEven() {
+            return this.even;
+        }
+
+        public int sumOfOdd() {
+            return this.odd;
         }
 
         public double average() {
