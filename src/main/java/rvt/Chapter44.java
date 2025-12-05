@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex4();
+        ex5();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
