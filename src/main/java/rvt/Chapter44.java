@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex5();
+        ex6();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -91,6 +91,35 @@ public class Chapter44 {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine().trim();
             if (line.startsWith("//")) {
+                System.out.println(line);
+            }
+        }
+    }
+    public static void ex6() {
+        Scanner scanner = new Scanner(System.in);
+        boolean inBlockComment = false;
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String trimmed = line.trim();
+            if (trimmed.startsWith("/*")) {
+                inBlockComment = true;
+                System.out.println(line);
+                continue;
+            }
+
+            if (trimmed.startsWith("*/")) {
+                inBlockComment = false;
+                System.out.println(line);
+                continue;
+            }
+
+            if (trimmed.startsWith("//")) {
+                System.out.println(line);
+                continue;
+            }
+
+            if (inBlockComment) {
                 System.out.println(line);
             }
         }
