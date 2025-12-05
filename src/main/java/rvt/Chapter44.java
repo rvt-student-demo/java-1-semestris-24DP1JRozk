@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex2();
+        ex3();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -33,6 +33,38 @@ public class Chapter44 {
         Integer i = name.length();
         for (int j = 0; j < i; j++) {
             System.out.println(name.charAt(j));
+        }
+    }
+    public static void ex3() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Enter a name:\n");
+            String input = scanner.nextLine();
+
+            if (input.length() == 0) {
+                break;
+            }
+
+            String name = input.trim();
+
+            String lower = name.toLowerCase();
+
+            if (lower.startsWith("amy") ||
+                lower.startsWith("buffy") ||
+                lower.startsWith("cathy")) {
+
+                System.out.println("Ms. " + name + "\n");
+
+            } else if (lower.startsWith("elroy") ||
+                        lower.startsWith("fred") ||
+                        lower.startsWith("graham")) {
+
+                System.out.println("Mr. " + name + "\n");
+
+            } else {
+                System.out.println(name + "\n");
+            }
         }
     }
 }
