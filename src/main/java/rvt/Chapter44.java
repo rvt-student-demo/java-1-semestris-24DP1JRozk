@@ -84,7 +84,15 @@ public class Chapter44 {
         } else {
             System.out.println("0:" + time);
         }
+    }
+    public static void ex5() {
+        Scanner scanner = new Scanner(System.in);
 
-
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine().trim();
+            if (line.startsWith("//")) {
+                System.out.println(line);
+            }
+        }
     }
 }
