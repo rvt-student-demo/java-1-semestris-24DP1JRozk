@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex7();
+        ex8();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -152,6 +152,27 @@ public class Chapter44 {
                 break;
             } else {
                 System.out.println("That password is not acceptable.\n");
+            }
+        }
+    }
+    public static void ex8() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a word -->");
+        String word = scanner.nextLine();
+
+        int spaces = 0;
+
+        while (word.length() > 0) {
+            for (int i = 0; i < spaces; i++) {
+                System.out.print(" ");
+            }
+            System.out.println(word);
+            spaces++;
+            if (word.length() > 1) {
+                word = word.substring(1, word.length() - 1);
+            } else {
+                break;
             }
         }
     }
