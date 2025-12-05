@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex3();
+        ex4();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -66,5 +66,25 @@ public class Chapter44 {
                 System.out.println(name + "\n");
             }
         }
+    }
+    public static void ex4() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Input time:");
+        String time = scanner.nextLine();
+
+        int i = time.length();
+
+        if (i > 2) {
+            int minutesi = i - 2;
+            String minutes = time.substring(0, minutesi);
+            String seconds = time.substring(minutesi, i);
+
+            System.out.println(minutes + ":" + seconds);
+        } else {
+            System.out.println("0:" + time);
+        }
+
+
     }
 }
