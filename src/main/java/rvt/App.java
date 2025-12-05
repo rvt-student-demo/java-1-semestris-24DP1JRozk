@@ -1,24 +1,18 @@
 package rvt;
 
+import java.util.Scanner;
+
 public class App {
+
     public static void main(String[] args) {
-        PaymentCard paulsCard = new PaymentCard(20);
-        PaymentCard mattsCard = new PaymentCard(30);
+        Scanner scanner = new Scanner(System.in);
 
-        paulsCard.eatHeartily();
-        mattsCard.eatAffordably();
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
+        BookManager manager = new BookManager();
+        manager.readBooks();
 
-        paulsCard.addMoney(20);
-        mattsCard.eatHeartily();
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
+        System.out.print("\nWhat information will be printed? ");
+        String choice = scanner.nextLine();
 
-        paulsCard.eatAffordably();
-        paulsCard.eatAffordably();
-        mattsCard.addMoney(50);
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
+        manager.print(choice);
     }
 }
