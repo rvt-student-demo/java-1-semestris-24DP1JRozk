@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Chapter44 {
 
     public static void main(String[] args) {
-        ex6();
+        ex7();
     }
     public static void ex1() {
         Scanner scanner = new Scanner(System.in);
@@ -121,6 +121,37 @@ public class Chapter44 {
 
             if (inBlockComment) {
                 System.out.println(line);
+            }
+        }
+    }
+    public static void ex7() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Enter your password:");
+            String password = scanner.nextLine();
+
+            if (password.length() < 7) {
+                System.out.println("That password is not acceptable.\n");
+                continue;
+            }
+
+            boolean hasUpper = false;
+            boolean hasLower = false;
+            boolean hasDigit = false;
+
+            for (int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (Character.isUpperCase(c)) hasUpper = true;
+                if (Character.isLowerCase(c)) hasLower = true;
+                if (Character.isDigit(c)) hasDigit = true;
+            }
+
+            if (hasUpper && hasLower && hasDigit) {
+                System.out.println("Acceptable password.");
+                break;
+            } else {
+                System.out.println("That password is not acceptable.\n");
             }
         }
     }
