@@ -21,33 +21,36 @@ public class App {
             this.length = side;
         }
 
+        public Box(Box oldBox) {
+            this.width = oldBox.width;
+            this.height = oldBox.height;
+            this.length = oldBox.length;
+        }
+
         public double volume() {
             return width * height * length;
         }
 
         public double area() {
-            return 2 * faceArea() + 2 * topArea() + 2 * sideArea();
+            return 2 * (width * height + width * length + height * length);
         }
 
-        private double faceArea() {
-            return width * height;
-        }
-
-        private double topArea() {
-            return width * length;
-        }
-
-        private double sideArea() {
-            return height * length;
-        }
+        public double width() { return width; }
+        public double height() { return height; }
+        public double length() { return length; }
     }
 
     public static void main(String[] args) {
 
-        Box box = new Box(2.5, 5.0, 6.0);
+        Box original = new Box(2, 4, 6);
+        Box copy = new Box(original);
 
-        System.out.println("Area: " + box.area() +
-                " volume: " + box.volume());
-        System.out.println("Private helper methods confirmed.");
+        System.out.println("Original volume: " + original.volume());
+        System.out.println("Copy volume: " + copy.volume());
+
+        System.out.println("Copy dimensions: "
+                + copy.width() + ", "
+                + copy.height() + ", "
+                + copy.length());
     }
 }
