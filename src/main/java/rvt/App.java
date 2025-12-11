@@ -27,39 +27,24 @@ public class App {
             this.length = oldBox.length;
         }
 
-        public double volume() {
-            return width * height * length;
-        }
-
-        public double area() {
-            return 2 * (width * height + width * length + height * length);
-        }
-
         public double width() { return width; }
         public double height() { return height; }
         public double length() { return length; }
 
-        public Box biggerBox(Box oldBox) {
-            return new Box(1.25 * oldBox.width,
-                           1.25 * oldBox.height,
-                           1.25 * oldBox.length);
-        }
+        public boolean nests(Box outside) {
 
-        public Box smallerBox(Box oldBox) {
-            return new Box(0.75 * oldBox.width,
-                           0.75 * oldBox.height,
-                           0.75 * oldBox.length);
+            return this.width < outside.width
+                && this.height < outside.height
+                && this.length < outside.length;
         }
     }
 
     public static void main(String[] args) {
 
-        Box base = new Box(4, 6, 8);
-        Box big = base.biggerBox(base);
-        Box small = base.smallerBox(base);
+        Box small = new Box(3, 4, 5);
+        Box big = new Box(5, 6, 7);
 
-        System.out.println("Base volume: " + base.volume());
-        System.out.println("Bigger box volume: " + big.volume());
-        System.out.println("Smaller box volume: " + small.volume());
+        System.out.println("Small fits in big: " + small.nests(big));
+        System.out.println("Big fits in small: " + big.nests(small));
     }
 }
