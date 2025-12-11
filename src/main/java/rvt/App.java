@@ -3,48 +3,36 @@ package rvt;
 
 public class App {
 
-    static class Box {
+    static class Person {
 
-        private final double width;
-        private final double height;
-        private final double length;
+        private final String name;
+        private final String address;
 
-        public Box(double width, double height, double length) {
-            this.width = width;
-            this.height = height;
-            this.length = length;
+        public Person(String name, String address) {
+            this.name = name;
+            this.address = address;
         }
 
-        public Box(double side) {
-            this.width = side;
-            this.height = side;
-            this.length = side;
-        }
-
-        public Box(Box oldBox) {
-            this.width = oldBox.width;
-            this.height = oldBox.height;
-            this.length = oldBox.length;
-        }
-
-        public double width() { return width; }
-        public double height() { return height; }
-        public double length() { return length; }
-
-        public boolean nests(Box outside) {
-
-            return this.width < outside.width
-                && this.height < outside.height
-                && this.length < outside.length;
+        @Override
+        public String toString() {
+            return name + "\n  " + address;
         }
     }
 
     public static void main(String[] args) {
 
-        Box small = new Box(3, 4, 5);
-        Box big = new Box(5, 6, 7);
+        Person ada = new Person(
+            "Ada Lovelace",
+            "24 Maddox St. London W1S 2QN"
+        );
 
-        System.out.println("Small fits in big: " + small.nests(big));
-        System.out.println("Big fits in small: " + big.nests(small));
+        Person esko = new Person(
+            "Esko Ukkonen",
+            "Mannerheimintie 15 00100 Helsinki"
+        );
+
+        System.out.println(ada);
+        System.out.println();
+        System.out.println(esko);
     }
 }
