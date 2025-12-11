@@ -1,83 +1,83 @@
-package rvt;    
-import java.util.ArrayList;
+package rvt;
 
 
 public class App {
-
-    static class Person {
-
-        private final String name;
-        private final String address;
-
-        public Person(String name, String address) {
-            this.name = name;
-            this.address = address;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public String getAddress() {
-            return this.address;
-        }
-
-        @Override
-        public String toString() {
-            return name + "\n  " + address;
-        }
-    }
-
-    static class Student extends Person {
-
-        private int credits;
-
-        public Student(String name, String address) {
-            super(name, address);
-            this.credits = 0;
-        }
-
-        public int credits() {
-            return this.credits;
-        }
-
-        public void study() {
-            this.credits++;
-        }
-
-        @Override
-        public String toString() {
-            return getName() + "\n  " + getAddress() + "\n  Study credits " + credits;
-        }
-    }
-
-    static class Teacher extends Person {
-
-        private final int salary;
-
-        public Teacher(String name, String address, int salary) {
-            super(name, address);
-            this.salary = salary;
-        }
-
-        @Override
-        public String toString() {
-            return getName() + "\n  " + getAddress() + "\n  salary " + salary + " euro/month";
-        }
-    }
-
-    public static void printPersons(ArrayList<Person> persons) {
-        for (Person p : persons) {
-            System.out.println(p);
-        }
-    }
-
     public static void main(String[] args) {
+        Person alice = new Person("Alice");
+        System.out.println(alice);
 
-        ArrayList<Person> persons = new ArrayList<>();
-        persons.add(new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200));
-        persons.add(new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028"));
+        alice.setHeight(170);
+        alice.setWeight(65);
+        alice.growOlder();
+        System.out.println(alice);
 
-        printPersons(persons);
+        Person bob = new Person("Bob", 25, 180, 75);
+        System.out.println(bob);
+        System.out.println(bob.getName() + " is adult? " + bob.isAdult());
+
+        bob.setWeight(78);
+        System.out.println(bob);
+    }
+}
+
+class Person {
+    private final String name;
+    private int age;
+    private int height;
+    private int weight;
+
+    public Person(String name) {
+        this(name, 0, 0, 0);
+    }
+
+    public Person(String name, int age, int height, int weight) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setHeight(int height) {
+        if (height >= 0) this.height = height;
+    }
+
+    public void setWeight(int weight) {
+        if (weight >= 0) this.weight = weight;
+    }
+
+    public void growOlder() {
+        age++;
+    }
+
+    public boolean isAdult() {
+        return age >= 18;
+    }
+
+    public double bodyMassIndex() {
+        if (height <= 0) return 0;
+        double heightInMeters = height / 100.0;
+        return weight / (heightInMeters * heightInMeters);
+    }
+
+    @Override
+    public String toString() {
+        return name + " is " + age + " years old" +
+               (height > 0 && weight > 0 ? ", BMI: " + String.format("%.2f", bodyMassIndex()) : "");
     }
 }
