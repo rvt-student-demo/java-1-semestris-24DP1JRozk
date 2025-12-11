@@ -38,19 +38,28 @@ public class App {
         public double width() { return width; }
         public double height() { return height; }
         public double length() { return length; }
+
+        public Box biggerBox(Box oldBox) {
+            return new Box(1.25 * oldBox.width,
+                           1.25 * oldBox.height,
+                           1.25 * oldBox.length);
+        }
+
+        public Box smallerBox(Box oldBox) {
+            return new Box(0.75 * oldBox.width,
+                           0.75 * oldBox.height,
+                           0.75 * oldBox.length);
+        }
     }
 
     public static void main(String[] args) {
 
-        Box original = new Box(2, 4, 6);
-        Box copy = new Box(original);
+        Box base = new Box(4, 6, 8);
+        Box big = base.biggerBox(base);
+        Box small = base.smallerBox(base);
 
-        System.out.println("Original volume: " + original.volume());
-        System.out.println("Copy volume: " + copy.volume());
-
-        System.out.println("Copy dimensions: "
-                + copy.width() + ", "
-                + copy.height() + ", "
-                + copy.length());
+        System.out.println("Base volume: " + base.volume());
+        System.out.println("Bigger box volume: " + big.volume());
+        System.out.println("Smaller box volume: " + small.volume());
     }
 }
