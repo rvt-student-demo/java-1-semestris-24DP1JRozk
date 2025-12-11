@@ -13,6 +13,14 @@ public class App {
             this.address = address;
         }
 
+        public String getName() {
+            return this.name;
+        }
+
+        public String getAddress() {
+            return this.address;
+        }
+
         @Override
         public String toString() {
             return name + "\n  " + address;
@@ -35,6 +43,11 @@ public class App {
         public void study() {
             this.credits++;
         }
+
+        @Override
+        public String toString() {
+            return getName() + "\n  " + getAddress() + "\n  Study credits " + credits;
+        }
     }
 
     public static void main(String[] args) {
@@ -45,10 +58,9 @@ public class App {
         );
 
         System.out.println(ollie);
-        System.out.println("Study credits " + ollie.credits());
 
         ollie.study();
 
-        System.out.println("Study credits " + ollie.credits());
+        System.out.println(ollie);
     }
 }
