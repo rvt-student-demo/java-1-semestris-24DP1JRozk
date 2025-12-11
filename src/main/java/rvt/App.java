@@ -3,7 +3,6 @@ package rvt;
 
 public class App {
 
-    // Immutable Box class
     static class Box {
 
         private final double width;
@@ -27,7 +26,19 @@ public class App {
         }
 
         public double area() {
-            return 2 * (width * height + height * length + width * length);
+            return 2 * faceArea() + 2 * topArea() + 2 * sideArea();
+        }
+
+        private double faceArea() {
+            return width * height;
+        }
+
+        private double topArea() {
+            return width * length;
+        }
+
+        private double sideArea() {
+            return height * length;
         }
     }
 
@@ -35,9 +46,8 @@ public class App {
 
         Box box = new Box(2.5, 5.0, 6.0);
 
-        System.out.println("\nArea: " + box.area()
-                + " volume: " + box.volume());
-
-        System.out.println("Works. Box is properly encapsulated.");
+        System.out.println("Area: " + box.area() +
+                " volume: " + box.volume());
+        System.out.println("Private helper methods confirmed.");
     }
 }
